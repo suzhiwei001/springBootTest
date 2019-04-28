@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.suzhiwei.demoOne.Mapper.UserMapper">
+	<sql id="User_Colum_List">
+		name,password,phone,email,creation_time,age,sexual
+	</sql>
+	<select id="showAllUser" resultType = "com.suzhiwei.demoOne.Bean.User">
+		select * from user
+	</select>
+	<select id="findUserByName" parameterType="String"
+		resultType="com.suzhiwei.demoOne.Bean.User">
+		select
+		<include refid="User_Colum_List" />
+		from user
+		where name = #{name}
+	</select>
+	<insert id="insertUser"
+		parameterType="com.suzhiwei.demoOne.Bean.User">
+		INSERT INTO
+		user(name,password,phone,email,creation_time,age,sexual) VALUES
+		(#{name},#{password},#{phone},#{email},#{creationTime},#{age},#{sexual})
+	</insert>
+</mapper>
