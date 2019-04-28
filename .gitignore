@@ -28,5 +28,6 @@ hs_err_pid*
 *velocity.log*
 # Eclipse #
 .classpath
+.mvn
 .project
 .settings/
